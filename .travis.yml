@@ -1,6 +1,5 @@
 branches:
   only:
-    - "add_json"
     - "master"
 
 before_install:
@@ -38,10 +37,12 @@ before_script:
   - bin/phantomjs192 --version
 
 script:
-  - make test
-  - make test-dotNET
+  - $TEST_SUITE
 
 env:
+    - TEST_SUITE="make test"
+    - TEST_SUITE="make test-dotNET"
+
   matrix:
     - PHANTOMJS_EXECUTABLE="bin/phantomjs182 --local-to-remote-url-access=yes --ignore-ssl-errors=yes"
     - PHANTOMJS_EXECUTABLE="bin/phantomjs190 --local-to-remote-url-access=yes --ignore-ssl-errors=yes"
