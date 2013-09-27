@@ -41,6 +41,7 @@ script:
   - $TEST_SUITE
 
 env:
+    matrix:
     - TEST_SUITE="make test"
     - TEST_SUITE="make test-dotNET"
     - PHANTOMJS_EXECUTABLE="bin/phantomjs182 --local-to-remote-url-access=yes --ignore-ssl-errors=yes"
